@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+<meta name="description" content="{$SEO['description']}">
+<link rel="stylesheet" type="text/css" href="{CSS_PATH}homepage.css">
+<script type="text/javascript" src="{JS_PATH}homepage.js"></script>
+</head>
+
+<body>
+<div class="container">
+	<!--头部-->
+	<div class="header">
+		<div class="logo">
+        	<a href="homepage.html"><img src="{IMG_PATH}iots/logo.png" /></a>
+        	<a href="homepage.html"><h2>南昌大学物联网技术创新创业基地</h2></a>
+            <a href="homepage.html"><h5>Nanchang University Internet of things technology innovation and<br/> entrepreneurship base </h5></a>
+        </div>
+		<div class="link">
+			<ul>
+				<li><a href="">信箱</a></li>
+				<li><a href="" class="system">管理系统</a></li>
+				<li><a href="">收藏</a></li>
+			</ul>
+		</div>
+	</div>
+    <!--头部结束--> 
+    <!--导航栏--> 
+	<div class="menu">
+  <map>
+  
+  <ul>
+
+{pc:content action="category" catid="0" num="25" siteid="$siteid" order="listorder ASC"}
+
+{loop $data $k $v}
+
+<li><a href="{$v[url]}">{$v[catname]}
+
+<!--[if IE 7]><!--></a><!--<![endif]-->
+
+<!--[if lte IE 6]><table><tr><td><![endif]-->
+<ul>
+
+{pc:content action="category" catid="$k" num="10" siteid="$siteid" order="listorder ASC"}
+
+{loop $data $r} <li><a href="{$r[url]}">{$r[catname]}</a></li> {/loop}
+
+{/pc}
+
+</ul>
+
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+
+</li>
+
+{/loop}
+
+{/pc}
+
+</ul>
+
+
+    </map>
+	</div>
+
+  
+  </body>
+  </html>
